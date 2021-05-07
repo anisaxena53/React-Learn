@@ -1,4 +1,5 @@
 import React ,{Component} from 'react';
+import SelectDish from './selectedDishComponent';
 import {Card,CardImg,CardImgOverlay,CardBody,CardText,CardTitle} from 'reactstrap';
 class Menu extends Component
 {
@@ -13,30 +14,23 @@ class Menu extends Component
     onDishSelect(dish)
     {
         this.setState({selectedDish:dish})
+        console.log(dish);
     }
-    renderDish(dish)
-    {
-        if(dish!=null)
-        {
-           return(
-               <Card>
-                  <CardImg width="100%" src={dish.image} alt={dish.name} />
-                  <CardBody>
-                    <CardTitle heading>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>   
-                 </CardBody> 
-               </Card>
-           )
-        }
-        else{
-            return(<div></div>);
-        }
+    renderDish(dish) {
+        if (dish != null)
+            return(
+                <SelectDish info={this.state.selectedDish} />
+            );
+        else
+            return(
+                <div></div>
+            );
     }
     render()
     { const menu=this.props.dishes.map((dish) =>{
         return(
-            <div key={dish.id} className="col-12 col-md-5 m-1">
-                <Card onClick={()=>this.onDishSelect(dish)}>
+            <div key={dish.id} className="col-12 col-md-5">
+                <Card onClick={() => this.onDishSelect(dish)}>
                     
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
 
@@ -57,8 +51,8 @@ class Menu extends Component
                    
                 </div>
                 <div>
-                    {this.renderDish(this.state.selectedDish)}
-                </div>
+                {this.renderDish(this.state.selectedDish)}
+            </div>
             </div>
         );
     }
