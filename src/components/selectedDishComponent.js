@@ -9,18 +9,21 @@ class SelectDish extends Component{
          }
      }
     render()
-    {const reviews=this.props.info.comments.map((review) =>{
+    {  console.log(this.props.info);
+        if(this.props.info!==undefined)
+        {
+        const reviews=this.props.info.comments.map((review) =>{
+        
         return(
             <div key={review.id} className="col-12">
                 <h6>{review.comment}</h6>
-                <div>{review.author}</div>
-                <div>{review.date}</div>
+                <div>{new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'2-digit'}).format(new Date(Date.parse(review.date)))}</div>
                 <br></br>
 
             </div>
         );
     });
-        return(
+    return(
             <div className="row">
             <div  className="col-12 col-md-5 m-1">
                 <Card>
@@ -39,7 +42,11 @@ class SelectDish extends Component{
                 </Card>
               </div>
             </div>
-        );
+        );}
+        else{
+            
+            return(<div></div>);
+        }
     }
 }
 export default SelectDish;
