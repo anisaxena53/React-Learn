@@ -24,9 +24,9 @@ import {Card,CardImg,CardBody,CardText,CardTitle} from 'reactstrap';
     });
     return(
             <div className="row">
-            <div  className="col-12 col-md-5 m-1">
+            <div  className="col-12 col-md-5 m-1 ml-5">
                 <Card>
-                    <CardImg top src={props.info.image} alt={props.info.name} />
+                    <CardImg top width="100%" src={props.info.image} alt={props.info.name} />
                     <CardBody>
                       <CardTitle>{props.info.name}</CardTitle>
                       <CardText>{props.info.description}</CardText>
@@ -36,7 +36,7 @@ import {Card,CardImg,CardBody,CardText,CardTitle} from 'reactstrap';
               </div>
               <div className="col-12 col-md-5 m-1">
               <Card>
-                    <CardTitle>Comments</CardTitle>
+                    <CardTitle className="m-5"><h4>Comments</h4></CardTitle>
                     <CardBody>{reviews}</CardBody>
                 </Card>
               </div>
