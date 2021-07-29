@@ -1,51 +1,75 @@
 import React  from 'react';
-import {Card,CardImg,CardBody,CardText,CardTitle} from 'reactstrap';
- function Comments ({info})
+import {Card,CardImg,CardBody,CardText,CardTitle,BreadcrumbItem,Breadcrumb} from 'reactstrap';
+import { Link } from 'react-router-dom';
+ function RenderComments ({comments})
+ {
+    if(comments!=null)
+    {
+        return(
+            <div className="col-12 col-md-5 m-1">
+                <h4>Comments</h4>
+                <ul className="list-unstyled">
+                    {comments.map((comment) => {
+                        return(
+                            <li key={comment.id}>
+                                <p>{comment.comment}</p>
+                                <p>--{comment.author}, {new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                            </li>
+                        );})}
+                    
+                </ul>
+            </div>
+
+        );
+    }
+    else{
+        return(
+            <div></div>
+        );
+    }
+ }
+ function RenderDish({dish})
  {
     return(
-        <div><h6>{info.comment}</h6>
-                <div>{new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'2-digit'}).format(new Date(Date.parse(info.date)))}</div>
-                <br></br>
-                </div>
+        
+        
+            <Card>
+                <CardImg top width="100%" src={dish.image} alt={dish.name} />
+                <CardBody>
+                  <CardTitle>{dish.name}</CardTitle>
+                  <CardText>{dish.description}</CardText>
+                </CardBody>
+            </Card>
+            
+        
+          
     );
  }
  const SelectDish =(props)=>
-{
-    if(props.info!==undefined)
-        {
-        const reviews=props.info.comments.map((review) =>{
-        
-        return(
-            <div key={review.id} className="col-12 col-md-5 m-1">
-               <Comments info={review} />  
-            
+{  
+    return (
+        <div className="container">
+        <div className="row">
+            <Breadcrumb>
+
+                <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+            </Breadcrumb>
+            <div className="col-12">
+                <h3>{props.dish.name}</h3>
+                <hr />
+            </div>                
+        </div>
+        <div className="row">
+            <div className="col-12 col-md-5 m-1">
+                <RenderDish dish={props.dish} />
             </div>
-        );
-    });
-    return(
-            <div className="row">
-            <div  className="col-12 col-md-5 m-1 ml-5">
-                <Card>
-                    <CardImg top width="100%" src={props.info.image} alt={props.info.name} />
-                    <CardBody>
-                      <CardTitle>{props.info.name}</CardTitle>
-                      <CardText>{props.info.description}</CardText>
-                    </CardBody>
-                </Card>
-                
-              </div>
-              <div className="col-12 col-md-5 m-1">
-              <Card>
-                    <CardTitle className="m-5"><h4>Comments</h4></CardTitle>
-                    <CardBody>{reviews}</CardBody>
-                </Card>
-              </div>
+            <div className="col-12 col-md-5 m-1">
+                <RenderComments comments={props.comments} />
             </div>
-        );}
-        else{
-            
-            return(<div></div>);
-        }
+        </div>
+        </div>
+    );
 }
         
    
