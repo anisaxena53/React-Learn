@@ -277,6 +277,61 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
+    },
+    {
+      "firstname": "Anisha",
+      "lastname": "Saxena",
+      "telnum": "8171075419",
+      "email": "anisaxena53@gmail.com",
+      "message": "hello",
+      "id": 2
+    },
+    {
+      "firstname": "Mimansha",
+      "lastname": "Saxena",
+      "telnum": "8171875419",
+      "email": "19102119@mail.jiit.ac.in",
+      "agree": true,
+      "contactType": "Email",
+      "message": "Thanks For the wonderful experience",
+      "id": 3
+    },
+    {
+      "firstname": "Sanket",
+      "lastname": "Saxena",
+      "telnum": "9171075419",
+      "email": "19102141@mail.jiit.ac.in",
+      "agree": true,
+      "message": "Had Fun",
+      "id": 4
+    },
+    {
+      "firstname": "Riya",
+      "lastname": "Singh",
+      "telnum": "8172875419",
+      "email": "mimanshasaxena07@gmail.com",
+      "agree": true,
+      "message": "Cool Place",
+      "id": 5
+    },
+    {
+      "firstname": "Ishita",
+      "lastname": "Verma",
+      "telnum": "8171075235",
+      "email": "anil.varma002@gmail.com",
+      "agree": true,
+      "contactType": "Email",
+      "message": "Will visit soon",
+      "id": 6
+    },
+    {
+      "firstname": "Saloni",
+      "lastname": "Singh",
+      "telnum": "8171071234",
+      "email": "anisaxena03@gmail.com",
+      "agree": true,
+      "message": "Beautiful",
+      "id": 7
     }
   ]
 }
