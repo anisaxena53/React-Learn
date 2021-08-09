@@ -2,6 +2,7 @@ import React,{Component } from 'react';
 import {Card,CardImg,CardBody,CardText,CardTitle,BreadcrumbItem,Breadcrumb,Button,  Label, Col,Row,Modal,ModalHeader,ModalBody} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import {LocalForm,Control,Errors} from 'react-redux-form';
+import { baseUrl } from '../shared/baseUrl';
 import {Loading} from './LoadingComponent';
 const maxLength=(len)=>(val)=>!(val) || (val.length<=len);
 const minLength=(len)=>(val)=>(val) && (val.length>len);
@@ -147,7 +148,7 @@ class CommentForm extends Component {
         
         
             <Card>
-                <CardImg top width="100%" src={dish.image} alt={dish.name} />
+                <CardImg top width="100%" src={baseUrl + dish.image} alt={dish.name} />
                 <CardBody>
                   <CardTitle>{dish.name}</CardTitle>
                   <CardText>{dish.description}</CardText>
